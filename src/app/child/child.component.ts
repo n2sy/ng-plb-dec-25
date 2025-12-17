@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ChildComponent {
   @Input({ required: true }) childColor: string = 'grey';
+
+  @Output() eventToParent = new EventEmitter();
+
+  emissionEvenement() {
+    this.eventToParent.emit('Message de la part du Child Component');
+  }
 }

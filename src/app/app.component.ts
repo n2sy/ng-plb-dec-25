@@ -11,4 +11,8 @@ import { ChildComponent } from './child/child.component';
 })
 export class AppComponent {
   title = 'plb-dec-25';
+
+  changerTitle(newTitle: string) {
+    this.title = newTitle;
+  }
 }

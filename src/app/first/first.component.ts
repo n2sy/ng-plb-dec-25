@@ -27,4 +27,8 @@ export class FirstComponent {
   changerFormation(newFormationValue: string) {
     this.formation = newFormationValue;
   }
+
+  traitement(msg: string) {
+    console.log(msg);
+  }
 }

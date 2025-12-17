@@ -21,4 +21,7 @@
 
 <hr />
 
-<app-child [childColor]="'blue'"></app-child>
+<app-child
+  (eventToParent)="traitement($event)"
+  [childColor]="'blue'"
+></app-child>
