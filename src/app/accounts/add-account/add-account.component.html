@@ -1,1 +1,13 @@
-<p>add-account works!</p>
+<label for="">Account Name</label>
+<input #inpName type="text" class="form-control" />
+
+<label for="">Account Status</label>
+<select #selStatus name="" id="" class="form-control">
+  @for (opt of allOptions; track $index) {
+  <option [value]="opt">{{ opt }}</option>
+  }
+</select>
+<br />
+<button class="btn btn-primary" (click)="addAccount(inpName, selStatus)">
+  Add Account
+</button>
