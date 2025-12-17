@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from '../child/child.component';
+import { Candidat } from '../models/Candidat.model';
 
 @Component({
   selector: 'app-first',
