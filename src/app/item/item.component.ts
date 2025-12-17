@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Candidat } from '../models/Candidat.model';
 
 @Component({
@@ -10,4 +10,9 @@ import { Candidat } from '../models/Candidat.model';
 })
 export class ItemComponent {
   @Input() unCandidat: Candidat;
+  @Output() eventToListe = new EventEmitter<Candidat>();
+
+  sendCandidateToListe() {
+    this.eventToListe.emit(this.unCandidat);
+  }
 }

@@ -16,4 +16,11 @@ export class CvComponent {
     new Candidat(2, 'simpson', 'homer', 54, 'Chef de projet', 'homer.png'),
     new Candidat(3, 'simpson', 'lisa', 23, 'designer', 'lisa.png'),
   ];
+
+  selectedCandidate: Candidat;
+
+  recupererCandidatClicke(cand: Candidat) {
+    this.selectedCandidate = cand;
+    console.log(this.selectedCandidate);
+  }
 }

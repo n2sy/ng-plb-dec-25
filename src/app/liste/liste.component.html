@@ -1,5 +1,14 @@
 <ol class="list-group">
-  <app-item [unCandidat]="tabCandidats[0]"></app-item>
-  <app-item [unCandidat]="tabCandidats[1]"></app-item>
-  <app-item [unCandidat]="tabCandidats[2]"></app-item>
+  <app-item
+    (eventToListe)="sendCandidateToCv($event)"
+    [unCandidat]="tabCandidats[0]"
+  ></app-item>
+  <app-item
+    (eventToListe)="sendCandidateToCv($event)"
+    [unCandidat]="tabCandidats[1]"
+  ></app-item>
+  <app-item
+    (eventToListe)="sendCandidateToCv($event)"
+    [unCandidat]="tabCandidats[2]"
+  ></app-item>
 </ol>

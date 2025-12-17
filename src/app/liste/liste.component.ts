@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 import { Candidat } from '../models/Candidat.model';
 
@@ -11,4 +11,8 @@ import { Candidat } from '../models/Candidat.model';
 })
 export class ListeComponent {
   @Input() tabCandidats: Candidat[] = [];
+  @Output() eventToCv = new EventEmitter();
+  sendCandidateToCv(cand: Candidat) {
+    this.eventToCv.emit(cand);
+  }
 }
