@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FirstComponent } from './first/first.component';
 import { ChildComponent } from './child/child.component';
 import { CvComponent } from './cv/cv.component';
+import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FirstComponent, ChildComponent, CvComponent],
+  imports: [FirstComponent, ChildComponent, CvComponent, HomeAccountsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
