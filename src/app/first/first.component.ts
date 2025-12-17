@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-first',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ChildComponent],
   templateUrl: './first.component.html',
   // styleUrl: './first.component.css'
 })
