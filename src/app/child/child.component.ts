@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Candidat } from '../models/Candidat.model';
 
 @Component({
   selector: 'app-child',

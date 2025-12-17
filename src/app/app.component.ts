@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FirstComponent } from './first/first.component';
 import { ChildComponent } from './child/child.component';
+import { CvComponent } from './cv/cv.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FirstComponent, ChildComponent],
+  imports: [FirstComponent, ChildComponent, CvComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
