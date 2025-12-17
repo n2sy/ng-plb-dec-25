@@ -1,0 +1,20 @@
+<h3>Formation Angular avec {{ formation }} -- {{ annee }}</h3>
+
+<div [hidden]="hd" [style.backgroundColor]="couleur">
+  Exemple de Property Binding
+</div>
+
+<button (click)="clickHandler()" class="btn btn-primary">Click me</button>
+
+<input [(ngModel)]="formation" type="text" class="form-control" />
+
+<hr />
+<input
+  #inp
+  [value]="formation"
+  (input)="changerFormation(inp.value)"
+  type="text"
+  class="form-control"
+/>
+
+<p>{{ inp.value }}</p>
