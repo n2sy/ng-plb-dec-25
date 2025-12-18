@@ -1,1 +1,9 @@
-<p>recruter works!</p>
+<div>
+  <h4>Liste des recrues</h4>
+  <ol class="list-group">
+    @for (recrue of tabRecrues; track $index) {
+
+    <app-item [unCandidat]="recrue"></app-item>
+    }
+  </ol>
+</div>

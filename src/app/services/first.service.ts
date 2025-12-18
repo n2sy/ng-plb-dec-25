@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { GestionCandidatsService } from './gestion-candidats.service';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
+@Injectable()
 export class FirstService {
-  constructor() {}
+  constructor(private gestionCandidats: GestionCandidatsService) {}
 
   afficherSalut() {
     console.log('Salut ! Je suis le First Service');
+    console.log(this.gestionCandidats.getAllCandidates());
   }
 }

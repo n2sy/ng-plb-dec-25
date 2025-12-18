@@ -5,6 +5,7 @@ import { CvComponent } from './cv/cv.component';
 import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
 import { DirectComponent } from './direct/direct.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { RecruterComponent } from './recruter/recruter.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
     HomeAccountsComponent,
     DirectComponent,
     ManageServersComponent,
+    RecruterComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
