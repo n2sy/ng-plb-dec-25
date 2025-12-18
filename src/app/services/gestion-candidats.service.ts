@@ -18,6 +18,10 @@ export class GestionCandidatsService {
     return this.srcCandidates;
   }
 
+  getCandidatById(candidatId) {
+    return this.srcCandidates.find((cand) => cand._id == candidatId);
+  }
+
   addCandidate() {
     this.srcCandidates.push(
       new Candidat(5, 'NEW', 'CANDIDATE', 29, 'ingénieur', 'bart.jpeg')
