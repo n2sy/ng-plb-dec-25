@@ -11,9 +11,7 @@
   />
 
   @if (inpLogin.invalid && inpLogin.touched) {
-
   <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
-
   }
 
   <label for="">Mot de passe</label>
@@ -25,12 +23,62 @@
     type="text"
     class="form-control"
   />
+
+  <label for="">Langage préféré</label>
+  <select name="langage" [ngModel]="defaultLanguage" class="form-control">
+    @for (lang of languages; track $index) {
+    <option [value]="lang">{{ lang }}</option>
+    }
+  </select>
+  <hr />
+  <p>Default Language : {{ defaultLanguage }}</p>
+
   <br />
+
+  <label for="">Commentaire</label>
+  <textarea
+    class="form-control"
+    [(ngModel)]="monCommentaire"
+    name="comment"
+    cols="5"
+    rows="4"
+  ></textarea>
+  <hr />
+  <p>Mon Commentaire: {{ monCommentaire }}</p>
+
+  <br />
+
+  <label for="">Gestion des erreurs</label>
+  <input
+    #exp="ngModel"
+    type="text"
+    required
+    minlength="4"
+    pattern="nidhal"
+    class="form-control"
+    name="exemple"
+    ngModel
+  />
+
+  @if(exp.invalid) { @if (exp.errors["required"]) {
+  <div class="alert alert-info">Ce champ est obligatoire</div>
+  } @if (exp.errors["minlength"]) {
+  <div class="alert alert-info">Le nombre minimum de caractères est 4</div>
+  } @if (exp.errors["pattern"]) {
+  <div class="alert alert-info">Le pattern est 'nidhal'</div>
+  } }
+
   <pre>
     {{ f.value | json }}
   </pre>
 
   <button type="submit" (click)="submitHandler(f)" class="btn btn-primary">
     Submit
+  </button>
+  <button type="submit" (click)="genererMotDePasse(f)" class="btn btn-warning">
+    Generer Mot de passe
+  </button>
+  <button type="submit" (click)="resetForm(f)" class="btn btn-dark">
+    Reset
   </button>
 </form>
