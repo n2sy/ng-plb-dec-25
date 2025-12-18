@@ -1,13 +1,4 @@
 import { Routes } from '@angular/router';
-import { CvComponent } from './cv/cv.component';
-import { ManageServersComponent } from './manage-servers/manage-servers.component';
-import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
-import { DirectComponent } from './direct/direct.component';
-import { AccueilComponent } from './accueil/accueil.component';
-import { InfosComponent } from './infos/infos.component';
-import { AddComponent } from './add/add.component';
-import { EditComponent } from './edit/edit.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 // lazy loading --> 100
 export let myRoutes: Routes = [
@@ -64,6 +55,11 @@ export let myRoutes: Routes = [
     path: 'direct',
     loadComponent: () =>
       import('./direct/direct.component').then((c) => c.DirectComponent),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login.component').then((c) => c.LoginComponent),
   },
   {
     path: 'not-found',

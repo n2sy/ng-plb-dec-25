@@ -1,0 +1,36 @@
+<form #f="ngForm">
+  <label for="">Nom d'utilisateur</label>
+  <input
+    #inpLogin="ngModel"
+    ngModel
+    required
+    email
+    name="email"
+    type="text"
+    class="form-control"
+  />
+
+  @if (inpLogin.invalid && inpLogin.touched) {
+
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+
+  }
+
+  <label for="">Mot de passe</label>
+  <input
+    ngModel
+    required
+    minlength="4"
+    name="password"
+    type="text"
+    class="form-control"
+  />
+  <br />
+  <pre>
+    {{ f.value | json }}
+  </pre>
+
+  <button type="submit" (click)="submitHandler(f)" class="btn btn-primary">
+    Submit
+  </button>
+</form>
