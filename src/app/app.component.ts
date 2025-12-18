@@ -6,6 +6,8 @@ import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.co
 import { DirectComponent } from './direct/direct.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
 import { RecruterComponent } from './recruter/recruter.component';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,8 @@ import { RecruterComponent } from './recruter/recruter.component';
     DirectComponent,
     ManageServersComponent,
     RecruterComponent,
+    RouterOutlet,
+    NavbarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

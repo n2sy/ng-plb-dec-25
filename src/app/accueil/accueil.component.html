@@ -1,0 +1,12 @@
+<h3>Bienvenue à cette formation Angular chez PLB</h3>
+<h5>Navigation côté HTML</h5>
+<button routerLink="cv" class="btn btn-primary">Go To CV</button>
+<button [routerLink]="['accounts']" class="btn btn-warning">
+  Go To Accounts
+</button>
+
+<hr />
+
+<h5>Navigation côté Typescript</h5>
+<button (click)="goToCv()" class="btn btn-danger">Go To CV</button>
+<button (click)="goToAccounts()" class="btn btn-info">Go To Accounts</button>
