@@ -1,7 +1,7 @@
-<input type="text" class="form-control" />
+<input [(ngModel)]="selectedStatus" type="text" class="form-control" />
 <br />
 <ol class="list-group">
-  @for (serv of allServers; track $index) {
+  @for (serv of allServers | filter:selectedStatus; track $index) {
   <li class="list-group-item" [ngClass]="affecterClasse(serv.statut)">
     {{ serv.nom | short : 15 }} | {{ serv.type | titlecase }} |
     <!-- {{ 30 | currency : "TND" }} -->
