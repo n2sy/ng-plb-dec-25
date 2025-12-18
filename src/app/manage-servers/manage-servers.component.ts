@@ -1,9 +1,16 @@
+import {
+  DatePipe,
+  NgClass,
+  TitleCasePipe,
+  UpperCasePipe,
+  CurrencyPipe,
+} from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-manage-servers',
   standalone: true,
-  imports: [],
+  imports: [NgClass, UpperCasePipe, TitleCasePipe, DatePipe, CurrencyPipe],
   templateUrl: './manage-servers.component.html',
   styleUrl: './manage-servers.component.css',
 })
@@ -34,4 +41,12 @@ export class ManageServersComponent {
       statut: 'stable',
     },
   ];
+
+  affecterClasse(st) {
+    return {
+      'list-group-item-success': st == 'stable',
+      'list-group-item-danger': st == 'critical',
+      'list-group-item-warning': st == 'offline',
+    };
+  }
 }
