@@ -1,3 +1,8 @@
+@if (showError) {
+<div class="alert alert-danger">Login et/ou mot de passe erronés</div>
+
+}
+
 <form #f="ngForm">
   <label for="">Nom d'utilisateur</label>
   <input
@@ -10,7 +15,7 @@
     class="form-control"
   />
 
-  @if (inpLogin.invalid && inpLogin.touched) {
+  @if (inpLogin.invalid && inpLogin.dirty && inpLogin.value.length > 1) {
   <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
   }
 
@@ -23,7 +28,29 @@
     type="text"
     class="form-control"
   />
+  <br />
+  <div class="row">
+    <div class="col-6 offset-4">
+      @if (showLogin) {
+      <button type="submit" (click)="submitHandler(f)" class="btn btn-primary">
+        Se connecter
+      </button>
+      <button type="button" (click)="toggleShowLogin()" class="btn btn-warning">
+        Aller à Register
+      </button>
 
+      } @else {
+      <button type="submit" (click)="submitHandler(f)" class="btn btn-dark">
+        S'inscrire
+      </button>
+      <button type="button" (click)="toggleShowLogin()" class="btn btn-info">
+        Aller à Login
+      </button>
+
+      }
+    </div>
+  </div>
+  <!-- 
   <label for="">Langage préféré</label>
   <select name="langage" [ngModel]="defaultLanguage" class="form-control">
     @for (lang of languages; track $index) {
@@ -70,15 +97,12 @@
 
   <pre>
     {{ f.value | json }}
-  </pre>
+  </pre> -->
 
-  <button type="submit" (click)="submitHandler(f)" class="btn btn-primary">
-    Submit
-  </button>
-  <button type="submit" (click)="genererMotDePasse(f)" class="btn btn-warning">
+  <!-- <button type="submit" (click)="genererMotDePasse(f)" class="btn btn-warning">
     Generer Mot de passe
   </button>
   <button type="submit" (click)="resetForm(f)" class="btn btn-dark">
     Reset
-  </button>
+  </button> -->
 </form>
