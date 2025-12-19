@@ -38,7 +38,7 @@ export class CvComponent {
   }
 
   addNewCandidate() {
-    this.candidatSer.addCandidate();
+    // this.candidatSer.addCandidate();
   }
 
   showCandidatesList() {

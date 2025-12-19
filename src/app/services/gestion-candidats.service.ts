@@ -22,9 +22,19 @@ export class GestionCandidatsService {
     return this.srcCandidates.find((cand) => cand._id == candidatId);
   }
 
-  addCandidate() {
-    this.srcCandidates.push(
-      new Candidat(5, 'NEW', 'CANDIDATE', 29, 'ingénieur', 'bart.jpeg')
+  addCandidate(newCandidat) {
+    newCandidat._id = crypto.randomUUID();
+    this.srcCandidates.push(newCandidat);
+  }
+
+  updateCandidate(updatedCand) {
+    let i = this.srcCandidates.findIndex(
+      (element) => element._id == updatedCand._id
     );
+    this.srcCandidates[i] = updatedCand;
+  }
+  deleteCandidate(candId) {
+    let i = this.srcCandidates.findIndex((element) => element._id == candId);
+    this.srcCandidates.splice(i, 1);
   }
 }
