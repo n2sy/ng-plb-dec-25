@@ -23,17 +23,27 @@
       >Servers</a
     >
   </li>
+  @if (authSer.estConnecte()) {
   <li class="nav-item">
     <a class="nav-link" routerLink="cv/add" routerLinkActive="active"
       >Ajouter Candidat</a
     >
   </li>
+
+  }
   <li class="nav-item">
     <a class="nav-link" routerLink="accounts" routerLinkActive="active"
       >Accounts</a
     >
   </li>
+  @if (!authSer.estConnecte()) {
   <li class="nav-item">
     <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
   </li>
+  } @else {
+  <li class="nav-item">
+    <a class="nav-link" (click)="authSer.seDeconnecter()">Logout</a>
+  </li>
+
+  }
 </ul>

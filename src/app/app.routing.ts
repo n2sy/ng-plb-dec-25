@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
 import { allowGuard } from './guards/allow.guard';
+import { blockLoginGuard } from './guards/block-login.guard';
+import { quitterLoginGuard } from './guards/quitter-login.guard';
+import { quitterFormGuard } from './guards/quitter-form.guard';
 
 // lazy loading --> 100
 export let myRoutes: Routes = [
@@ -21,6 +24,7 @@ export let myRoutes: Routes = [
         loadComponent: () =>
           import('./add/add.component').then((c) => c.AddComponent),
         canActivate: [allowGuard],
+        canDeactivate: [quitterFormGuard],
       },
       {
         path: ':id',
@@ -68,6 +72,8 @@ export let myRoutes: Routes = [
     path: 'login',
     loadComponent: () =>
       import('./login/login.component').then((c) => c.LoginComponent),
+    canActivate: [blockLoginGuard],
+    canDeactivate: [quitterLoginGuard],
   },
   {
     path: 'not-found',

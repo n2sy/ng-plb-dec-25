@@ -1,0 +1,1 @@
+import{Z as e}from"./chunk-XJE2RIN6.js";var i=class t{transform(r){return r||"avatar.jpg"}static \u0275fac=function(n){return new(n||t)};static \u0275pipe=e({name:"noAvatar",type:t,pure:!0,standalone:!0})};export{i as a};

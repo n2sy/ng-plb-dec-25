@@ -14,8 +14,10 @@ import { JsonPipe } from '@angular/common';
 export class AddComponent {
   private candSer = inject(GestionCandidatsService);
   private router = inject(Router);
+  isSubmitted = false;
   submitHandler(fValue, e) {
     //console.log(e.target[4].files[0]);
+    this.isSubmitted = true;
     let formData = new FormData();
     formData.set('avatar', e.target[4].files[0]);
 
