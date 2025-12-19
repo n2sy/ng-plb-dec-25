@@ -19,9 +19,20 @@ export class InfosComponent {
 
   ngOnInit() {
     // 1ere méthode
-    this.candidatCible = this.candSer.getCandidatById(
-      this.actRoute.snapshot.paramMap.get('id')
-    );
+    // this.candidatCible = this.candSer.getCandidatById(
+    //   this.actRoute.snapshot.paramMap.get('id')
+    // );
+    this.candSer
+      .getCandidatByIdAPI(this.actRoute.snapshot.paramMap.get('id'))
+      .subscribe({
+        next: (response: Candidat) => {
+          this.candidatCible = response;
+        },
+        error: (err) => {
+          alert(err.error.message);
+          this.router.navigateByUrl('/not-found');
+        },
+      });
 
     //2eme méthode
     // this.actRoute.paramMap.subscribe({
@@ -39,8 +50,15 @@ export class InfosComponent {
 
   deleteHandler() {
     if (confirm('Etes-vous sûr de vouloir supprimer ce candidat ?')) {
-      this.candSer.deleteCandidate(this.candidatCible._id);
-      this.router.navigateByUrl('/cv');
+      this.candSer.deleteCandidateAPI(this.candidatCible._id).subscribe({
+        next: (response) => {
+          alert('Candidat supprimé ave succès');
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 }

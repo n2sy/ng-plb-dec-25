@@ -18,14 +18,28 @@ export class EditComponent {
   private candSer = inject(GestionCandidatsService);
 
   ngOnInit() {
-    this.candidateToEdit = this.candSer.getCandidatById(
-      this.actRoute.snapshot.paramMap.get('id')
-    );
+    this.candSer
+      .getCandidatByIdAPI(this.actRoute.snapshot.paramMap.get('id'))
+      .subscribe({
+        next: (response: Candidat) => {
+          this.candidateToEdit = response;
+        },
+        error: (err) => {
+          this.router.navigateByUrl('/not-found');
+        },
+      });
   }
 
   submitHandler(fValue) {
     fValue._id = this.candidateToEdit._id;
-    this.candSer.updateCandidate(fValue);
-    this.router.navigateByUrl('/cv');
+    this.candSer.updateCandidateAPI(fValue).subscribe({
+      next: (response) => {
+        alert('Candidat a été bien mis à jour');
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

@@ -19,7 +19,17 @@ export class ListeComponent {
   private candSer = inject(GestionCandidatsService);
 
   ngOnInit() {
-    this.tabCandidats = this.candSer.getAllCandidates();
+    this.candSer.getAllCandidatesAPI().subscribe({
+      next: (response: Candidat[]) => {
+        this.tabCandidats = response;
+      },
+      error: (err) => {
+        alert(
+          'Connexion impossible... Chargement des données fictives en cours'
+        );
+        this.tabCandidats = this.candSer.getAllCandidates();
+      },
+    });
   }
   sendCandidateToCv(cand: Candidat) {
     this.eventToCv.emit(cand);
