@@ -57,6 +57,11 @@ export let myRoutes: Routes = [
       import('./direct/direct.component').then((c) => c.DirectComponent),
   },
   {
+    path: 'react',
+    loadComponent: () =>
+      import('./react/react.component').then((c) => c.ReactComponent),
+  },
+  {
     path: 'login',
     loadComponent: () =>
       import('./login/login.component').then((c) => c.LoginComponent),

@@ -1,0 +1,31 @@
+<form [formGroup]="signUpForm">
+  <label for="">Nom d'utilisateur</label>
+  <input type="text" class="form-control" formControlName="username" />
+
+  <label for="">Adresse mail</label>
+  <input type="text" class="form-control" formControlName="addrMail" />
+
+  @if (signUpForm.get('addrMail').invalid) {
+  <div class="alert alert-info">
+    Ce champ est obligatoire et doit être une adresse mail
+  </div>
+  }
+
+  <div>
+    <h4>Ajout de compétence</h4>
+    <label for="">Compétences </label>
+    <button (click)="addSkill()" class="btn btn-outline-info">Add</button>
+    @for (ctrl of formSkills.controls; track $index) {
+    <input type="text" class="form-control" [formControl]="$any(ctrl)" />
+    }
+  </div>
+
+  <button
+    [disabled]="signUpForm.invalid"
+    (click)="submitHandler()"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+</form>
