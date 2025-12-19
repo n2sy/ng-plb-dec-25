@@ -6,7 +6,7 @@ export class FirstService {
   constructor(private gestionCandidats: GestionCandidatsService) {}
 
   afficherSalut() {
-    console.log('Salut ! Je suis le First Service');
-    console.log(this.gestionCandidats.getAllCandidates());
+    //console.log('Salut ! Je suis le First Service');
+    //console.log(this.gestionCandidats.getAllCandidates());
   }
 }
