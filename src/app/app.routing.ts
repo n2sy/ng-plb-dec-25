@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { allowGuard } from './guards/allow.guard';
 
 // lazy loading --> 100
 export let myRoutes: Routes = [
@@ -19,6 +20,7 @@ export let myRoutes: Routes = [
         path: 'add',
         loadComponent: () =>
           import('./add/add.component').then((c) => c.AddComponent),
+        canActivate: [allowGuard],
       },
       {
         path: ':id',
@@ -32,6 +34,7 @@ export let myRoutes: Routes = [
             path: 'edit',
             loadComponent: () =>
               import('./edit/edit.component').then((c) => c.EditComponent),
+            canActivate: [allowGuard],
           },
         ],
       },

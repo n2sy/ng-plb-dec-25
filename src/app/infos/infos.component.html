@@ -43,7 +43,11 @@
               </tbody>
             </table>
             <div class="d-flex justify-content-center">
-              <button (click)="deleteHandler()" class="btn btn-danger">
+              <button
+                [disabled]="!authSer.estConnecte()"
+                (click)="deleteHandler()"
+                class="btn btn-danger"
+              >
                 Delete
               </button>
               <button routerLink="edit" class="btn btn-primary">Update</button>

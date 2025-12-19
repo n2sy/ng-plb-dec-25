@@ -19,5 +19,9 @@ export class AuthService {
 
   seDeconnecter() {}
 
-  estConnecte() {}
+  estConnecte() {
+    let token = localStorage.getItem('access_token');
+    if (token) return true;
+    return false;
+  }
 }
